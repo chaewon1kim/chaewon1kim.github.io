@@ -24,9 +24,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@domain.com
-author: GitHub User
+title: Best Reviewer가 되는 과정
+email: chaewon95.kim@gmail.com
+author: chaewon kim
 
 # Copyright setting
 # You can use any html code, currently below placeholders are available:
@@ -217,3 +217,5 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-spaceship
+
+  category_list : [Books, Refactoring, Design Pattern, Clean Code]
