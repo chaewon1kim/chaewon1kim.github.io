@@ -21,7 +21,8 @@ tags: [Refactoring]
 리팩토링하면 프로그래밍 속도를 높일 수 있다.
 
 ## **언제 리팩토링 해야하는가?**
-돈 로버츠의 가이드:
+돈 로버츠의 가이드:  
+
 >"처음에는 그냥 한다.  
 두번째도 그냥 한다.  
 비슷한 일을 세번째 하게 되면 리팩토링한다."
@@ -70,6 +71,36 @@ for(int i=0;i<5;i++)
 중복 스위치문이 많이 나타날 때 수정이 힘들다. 스위치 문은 polymorphism 으로 개선 가능함  
 ### 13.Loops :  
 반복문은 파이프라인으로 대체 가능하다.  
+
+```java
+
+	public static void printGender()
+	{
+		int femaleNumber = 0;
+		ArrayList<People> PeopleList = new ArrayList<People>();
+		
+		for(People p : PeopleList)
+		{
+			System.out.println ("GENDER : " + p.gender);
+		}
+	}
+
+```
+ArrayList 구조체를 아래처럼 Stream 으로 변환하면 파이프라인 구조로 처리할 수 있다. 위처럼 간단한 예제는 상관없지만 Stream 객체의 map, filter 등을 활용하면 불필요한 loop문들을 제거할 수 있다.  
+
+```java
+	public static void printGender()
+	{
+		ArrayList<People> PeopleList = new ArrayList<People>();
+		
+		Stream<People> PeopleSteam = PeopleList.stream();
+		PeopleSteam.forEach(p -> { 
+			System.out.println("GENDER : " + p.gender);  // 람다식을 사용하여 요소처리
+		});
+	}
+
+
+```
 
 ### 14.Lazy Element :  
 어떤 이유로 의미 없는 함수로 남거나 메서드가 하나 뿐인 클래스 등이 되었을 때 발생한다.  
