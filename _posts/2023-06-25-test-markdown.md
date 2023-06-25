@@ -73,32 +73,26 @@ for(int i=0;i<5;i++)
 반복문은 파이프라인으로 대체 가능하다.  
 
 ```java
-
 	public static void printGender()
 	{
-		int femaleNumber = 0;
 		ArrayList<People> PeopleList = new ArrayList<People>();
-		
 		for(People p : PeopleList)
-		{
+    {
 			System.out.println ("GENDER : " + p.gender);
 		}
 	}
-
 ```
 ArrayList 구조체를 아래처럼 Stream 으로 변환하면 파이프라인 구조로 처리할 수 있다. 위처럼 간단한 예제는 상관없지만 Stream 객체의 map, filter 등을 활용하면 불필요한 loop문들을 제거할 수 있다.  
 
 ```java
-	public static void printGender()
-	{
-		ArrayList<People> PeopleList = new ArrayList<People>();
-		
-		Stream<People> PeopleSteam = PeopleList.stream();
-		PeopleSteam.forEach(p -> { 
-			System.out.println("GENDER : " + p.gender);  // 람다식을 사용하여 요소처리
-		});
-	}
-
+public static void printGender()
+{
+  ArrayList<People> PeopleList = new ArrayList<People>();
+  Stream<People> PeopleSteam = PeopleList.stream();
+  PeopleSteam.forEach(p -> { 
+    System.out.println("GENDER : " + p.gender);
+  );
+}
 
 ```
 
@@ -118,8 +112,10 @@ ArrayList 구조체를 아래처럼 Stream 으로 변환하면 파이프라인 �
 ### 20.Large Class :  
 필드 수, 코드량이 너무 많아진 클래스로 중복을 제거하고 클래스를 추출해서 분리할 수 있다.  
 ### 21.Alternative Classes with Different Interfaces  
-### 22.Data Class :  데이터 클래스에 public 필드가 있다면 캡슐화하고 불변 데이터는 setter 를 제거한다.  
+### 22.Data Class :  
+데이터 클래스에 public 필드가 있다면 캡슐화하고 불변 데이터는 setter 를 제거한다.  
 
-### 23.Refused Bequest :  계층 구조를 잘못 설계해서 일부의 메서드와 데이터만 물려 받을 때, 서브 클래스가 부모의 동작은 필요로 하지만 인터페이스는 따르지 않을 때 발생한다.  
+### 23.Refused Bequest :  
+계층 구조를 잘못 설계해서 일부의 메서드와 데이터만 물려 받을 때, 서브 클래스가 부모의 동작은 필요로 하지만 인터페이스는 따르지 않을 때 발생한다.  
 ### 24.Comments :  
 코드를 잘못 작성해서 주석이 장황하게 달렸을때 나는 냄새  
