@@ -73,14 +73,14 @@ for(int i=0;i<5;i++)
 반복문은 파이프라인으로 대체 가능하다.  
 
 ```java
-	public static void printGender()
-	{
-		ArrayList<People> PeopleList = new ArrayList<People>();
-		for(People p : PeopleList)
-    {
-			System.out.println ("GENDER : " + p.gender);
-		}
-	}
+public static void printGender()
+{
+  ArrayList<People> PeopleList = new ArrayList<People>();
+  for(People p : PeopleList)
+  {
+    System.out.println ("GENDER : " + p.gender);
+  }
+}
 ```
 ArrayList 구조체를 아래처럼 Stream 으로 변환하면 파이프라인 구조로 처리할 수 있다. 위처럼 간단한 예제는 상관없지만 Stream 객체의 map, filter 등을 활용하면 불필요한 loop문들을 제거할 수 있다.  
 
