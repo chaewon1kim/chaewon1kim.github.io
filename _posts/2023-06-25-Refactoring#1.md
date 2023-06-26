@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Refactoring Principle and Code Smells
+title: 리팩토링 원칙과 Code Smells
 subtitle: 마틴 파울러의 리팩토링 2판 정리
 categories: Refactoring
 tags: [Refactoring]
