@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Refactoring 
+title: Refactoring Principle and Code Smells
 subtitle: 마틴 파울러의 리팩토링 2판 정리
 categories: Refactoring
 tags: [Refactoring]
@@ -62,9 +62,12 @@ for(int i=0;i<5;i++)
 ### 8.Shotgun Surgery :  
 코드를 변경할 때마다 여러 클래스를 수정해야 할 때 나는 냄새(<-> Divergent Change)  
 ### 9.Feature Envy :  
-자기가 속한 모듈의 함수나 데이터보다 다른 모듈과 상호작용하는 일이 더 많을때 발생한다. (예외 : Strategy Pattern, Visitor Pattern 등 상황에 따라 판단한다.)  
+자기가 속한 모듈의 함수나 데이터보다 다른 모듈과 상호작용하는 일이 더 많을때 발생한다. 
+기본이 되는 원칙은 '함께 변경할 대상을 한데 모으는 것'이다.  
+(예외 : Strategy Pattern, Visitor Pattern 등 상황에 따라 판단한다.)  
 ### 10.Data Clumps :  
 데이터가 항상 뭉쳐다닌다면 클래스로 묶어주자.  
+
 ### 11.Primitive Obsession  
 
 ### 12.Repeated Switches :  
@@ -105,7 +108,14 @@ public static void printGender()
 특정 상황에서만 값을 갖는 필드는 이해하기 어렵다. 이러한 임시 필드는 클래스로 추출하여 제거한다.  
 ### 17.Message Chains :  
 꼬리에 꼬리를 물고 임시 변수 등이 줄줄이 나열되는 경우  
+```java
+managerName = aPerson.department.manager.name;
+```
+위처럼 다른 객체를 요청하는 작업이 연쇄적으로 이어지는 코드를 말한다. 이럴 경우, 클라이언트가 객체 구조에 종속되므로 객체 수정이 발생하면 클라이언트 코드도 수정해야 한다. 아래처럼 위임을 숨기는 방법을 사용할 수 있다.
 
+```java
+managerName = aPerson.managerNmae;
+```
 ### 18.Middle Man :  
 클래스가 간단한 위임을 너무 많이 하고 있을 때 나는 냄새. 클래스의 메소드 중 절반이 다른 클래스에 구현을 위임하고 있다면 중개자(Middle Man) 을 제거하고 직접 소통하도록 한다.  
 ### 19.Insider Trading  
