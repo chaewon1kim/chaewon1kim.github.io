@@ -56,14 +56,31 @@ BookData BookData()
 ## 7. 변수 이름 바꾸기  
 명확한 프로그래밍의 핵심은 이름짓기이다. 제대로 된 이름을 짓지 못한 이유는 고민을 충분히 하지 않았거나 사용자의 요구가 변해 프로그램이 목적이 변했기 떄문이다.
 ```java
-int a = (gradeA + gradeB + gradeC)/3;
+int a = (priceA + priceB + priceC)/3;
 ```
 위 예시로는 a만 봐서는 무슨 변수인지 유추할 수 없으므로 변수 이름을 아래처럼 변경해주는 것이 명확하다.
 ```java
-int avgGrade = (gradeA + gradeB + gradeC)/3;
+int avgPrice = (priceA + priceB + priceC)/3;
 ```
 이렇게 변경된 변수가 여러 곳에서 쓰이고 있다면 변수 캡슐화하기를 고려한다. 변경된 변수를 참조하는 곳을 찾아서 하나씩 변경해준다.  
 
 ## 8. 매개변수 객체 만들기
 
 데이터 항목 여러 개가 함께 몰려다니는 무리를 발견하면 데이터 구조 하나로 모아준다. 함수의 매개변수로 이 데이터 구조를 받게 하면 매개변수 수가 줄어든다.
+```java
+boolean IsPriceinRange(int price, int price_min, int price_max)
+{
+    return (price >= price_min && price <= price_max);
+}
+```  
+
+위와 같은 코드는 매개변수가 총 3개이지만, temp_min,temp_max 는 항상 동시에 체크되므로 객체화할 수 있다.  
+
+```java
+boolean IsPriceinRange(int price, PriceRange priceRange)
+{
+    return (price >= priceRange.minPrice && temp <= priceRange.maxPrice);
+}
+```  
+## 9. 여러 함수를 클래스로 묶기
+공
