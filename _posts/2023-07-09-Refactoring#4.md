@@ -30,8 +30,18 @@ int bookPrice = bookData.getPrice();
 ```java
 BookData bookData = new BookData();
 int bookPrice = bookData.getPrice();
-```  
+``` 
 
 ## 7. 반복문 쪼개기  
+한 반복문 안에서 여러가지 일을 할때 이는 분리되어야 한다. 반복문이 두 번 실행되므로 이 방법이 불편할 수도 있지만 리팩토링과 최적화는 분리해서 생각해야 한다.  
+
 ## 8. 반복문 파이프라인으로 바꾸기  
+반복문은 파이프라인을 이용해서 처리과정을 일련의 연산으로 표현할 수 있다. 
+```java
+List<BookData> bestSellerList = bookDataList.stream().
+                                filter(b->b.getSales()>100).
+                                collect(Collectors.toList());
+```  
+판매부수가 100부가 넘는 책을 베스트 셀러라고 할때 반복문을 돌면서 확인하지 않고 파이프라인으로 표현하면 가독성이 더 좋아진다.
 ## 9. 죽은 코드 제거하기  
+호출하는 곳이 없는 코드는 지워야 한다. 다시 필요해질까봐 못지우겠다면 버전 관리 프로그램을 이용하여 어느 버젼에서 삭제됐는지 메모해두면 된다.
