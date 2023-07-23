@@ -15,7 +15,23 @@ tags: [Refactoring]
 ## 4. 문장을 호출한 곳으로 옮기기  
 3번과 반대 리팩토링 방법이다. 함수의 동작이 호출자에 따라서 다르게 동작하도록 바뀌어야 한다면 문장을 호출하는 곳으로 분리해서 적용해야한다.
 ## 5. 인라인 코드를 함수 호출로 바꾸기  
+똑같은 코드가 반복된다면 함수 호출로 변경해준다. 이렇게 하면 수정 사항이 발생했을때 함수 하나만 수정하면 된다. 
 ## 6. 문장 슬라이드하기  
+관련된 코드들이 한곳에 모여있을때 더 이해하기 쉽다. 그리고 관련된 코드들끼리 모여있을때 다른 리팩토링도 행하기 쉬워진다. 코드를 옮겼을때 부수효과가 일어난다면 이 방법을 포기한다. 
+
+```java
+BookData bookData = new BookData();
+WriterData writerData = new WriterData();
+...
+int bookPrice = bookData.getPrice();
+```  
+아래처럼 변수를 사용하는 곳에서 선언하면 관련있는 코드들끼리 모을 수 있다.
+
+```java
+BookData bookData = new BookData();
+int bookPrice = bookData.getPrice();
+```  
+
 ## 7. 반복문 쪼개기  
 ## 8. 반복문 파이프라인으로 바꾸기  
 ## 9. 죽은 코드 제거하기  
