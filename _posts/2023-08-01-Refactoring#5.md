@@ -28,4 +28,27 @@ bookProfit 변수를 final 로 정의하고 다른 값이 들어가지 못하게
 
 
 ## 2. 파생 변수를 질의 함수로 바꾸기  
+가변 데이터는 한 쪽 코드에서 수정한 값이 연쇄효과를 일으켜 다른 쪽 코드에 원인을 찾기 어려운 문제를 야기하기도 한다.
 
+## 3. 참조를 값으로 바꾸기
+불변 데이터의 경우에는 값 객체로 만들어 활용하기 좋다.
+
+```java
+class BookData{
+    BookPrice price;
+    ...
+    void applyDiscount (int percentage)
+    {
+        this.price = new BookPrice(this.price*percentage);
+    }
+}
+```  
+## 4. 값을 참조로 바꾸기  
+특정 객체를 여러 객체에서 공유하고자 한다면, 그래서 값이 변경됐을때 이를 관련 객체에 모두 알려줘야 한다면 공유 객체를 참조로 다루어야 한다.   
+
+## 5. 매직 리터럴 바꾸기
+일반적으로 쓰이는 상수 값을 적절한 이름으로 바꿔준다.  
+
+```java
+public static final int PI = 3.14
+```  
