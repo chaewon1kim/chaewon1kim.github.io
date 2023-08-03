@@ -13,12 +13,10 @@ tags: [Refactoring]
 
 ```java
 int tempValue = bookData.getPrice() * bookData.getSales();
-
 tempValue = bookData.getAvgSales() * YEAR;
 ```  
 ```java
 int bookProfit = bookData.getPrice() * bookData.getSales();
-
 int bookSalesPerYear = bookData.getAvgSales() * YEAR;
 ```  
 위의 예제 tempValue 에는 두 가지 각각 다른 값이 담겼기 때문에 변수를 분리해줘야 한다.
