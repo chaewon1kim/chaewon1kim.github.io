@@ -54,4 +54,10 @@ public void applyRegularDiscount(Bookdata book)
 ```  
 ## 4. 객체 통째로 넘기기  
 레코드를 통째로 넘기면 변화에 대응하기 쉽다.
+```java
+applyBestSellerDiscount(bookData.getSales(),bookData.getPrice()...);
+```  
+```java
+applyBestSellerDiscount(bookData);
+``` 
 ## 5. 매개변수를 질의 함수로 바꾸기  
