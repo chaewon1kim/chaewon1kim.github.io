@@ -101,6 +101,7 @@ applyBestSellerDiscount(bookData);
 ```java
 int totalAmount = calculateAmount();
 ``` 
+## 12. 오류 코드를 예외로 바꾸기  
 
 ## 13. 예외를 사전 확인으로 바꾸기  
 함수 수행 시, 문제가 될 수 있는 조건을 함수 호출 전에 검사할 수 잇다면, 미리 검사해야 한다.  
