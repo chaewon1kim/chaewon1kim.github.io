@@ -53,7 +53,8 @@ public void applyRegularDiscount(Bookdata book)
 }
 ```  
 ## 4. 객체 통째로 넘기기  
-레코드를 통째로 넘기면 변화에 대응하기 쉽다.
+레코드를 통째로 넘기면 변화에 대응하기 쉽다.  
+(추가로 데이터가 필요한 상황이 생겼을 때, 매개변수 추가가 아니라 피호출 함수 내부에서 수정이 가능하다.)
 ```java
 applyBestSellerDiscount(bookData.getSales(),bookData.getPrice()...);
 ```  
@@ -61,3 +62,14 @@ applyBestSellerDiscount(bookData.getSales(),bookData.getPrice()...);
 applyBestSellerDiscount(bookData);
 ``` 
 ## 5. 매개변수를 질의 함수로 바꾸기  
+제거하려는 매개변수의 값을 다른 매개변수로부터 얻을 수 있다면 쉽게 제거하고 질의 함수로 변경할 수 있다.
+(*내가 자주하는 실수: 매개변수를 없애는 대신 가변 전역 변수를 이용하는 일을 하면 안된다.)
+
+```java
+applyBestSellerDiscount(bookData.getSales(),bookData);
+```  
+```java
+applyBestSellerDiscount(bookData);
+``` 
+
+## 6. 질의 함수를 매개변수로 바꾸기  
