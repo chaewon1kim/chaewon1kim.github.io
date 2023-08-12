@@ -63,7 +63,7 @@ applyBestSellerDiscount(bookData);
 ``` 
 ## 5. 매개변수를 질의 함수로 바꾸기  
 제거하려는 매개변수의 값을 다른 매개변수로부터 얻을 수 있다면 쉽게 제거하고 질의 함수로 변경할 수 있다.
-(*내가 자주하는 실수: 매개변수를 없애는 대신 가변 전역 변수를 이용하는 일을 하면 안된다.)
+(*내가 자주하는 실수: 매개변수를 없애는 대신 가변 전역 변수를 이용하는 일을 하면 안된다.*)
 
 ```java
 applyBestSellerDiscount(bookData.getSales(),bookData);
