@@ -77,13 +77,20 @@ boolean IsPriceinRange(int price, int minPrice, int maxPrice)
 위와 같은 코드는 매개변수가 총 3개이지만, temp_min,temp_max 는 항상 동시에 체크되므로 객체화할 수 있다.  
 
 ```java
-boolean IsPriceinRange(int price, PriceRange priceRange)
+boolean isPriceInRange(int price, PriceRange priceRange)
 {
     return (price >= priceRange.minPrice && temp <= priceRange.maxPrice);
 }
 ```  
 ## 9. 여러 함수를 클래스로 묶기
 공통의 매개변수를 중심으로 작동하는 함수 무리를 발견하면 클래스로 묶어준다. 이렇게 하면 파생 객체들을 일관되게 관리할 수 있고 클라이언트가 객체의 핵심 데이터를 변경할 수 있다. 
+
+```java
+boolean isPriceInRange();
+boolean 
+```  
+
+
 
 ## 10. 여러 함수를 변환 함수로 묶기  
 변환 함수는 원본 데이터를 입력 받아서 필요한 정보를 도출하고 각각을 출력 데이터의 필드에 넣어 반환한다. 여러 함수를 변환 함수로 추출하면 도출 로직의 중복을 막고 쉽게 찾아 쓸 수 있다. (데이터 구조와 이를 사용하는 함수가 근처에 있지 않으면 함수를 발견하기 어려울 때가 많은데 변환 함수로 묶으면 쉽게 찾아 쓸 수 있다.)  
